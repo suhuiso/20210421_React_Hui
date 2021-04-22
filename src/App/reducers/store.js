@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from 'redux';
 import { REST_ADR } from '../config/config';
-const initialState = {
+export const initialState = {
     messages: [],
     tchatUsers: []
 }
@@ -29,8 +29,14 @@ function tchatReducer(state = initialState, action) {
             setInterval(() => { store.dispatch({ type: TCHAT_PRIVATE_ACTIONS.PULLING }) }, 2000);
             return state;
         case TCHAT_ACTIONS.SEND_MESSAGE:
-            fetch(`${REST_ADR}/messages`, { method: 'POST', body: JSON.stringify(action.value) })
-                .then(f => { console.log(f) }, f => { console.log(f) })
+            fetch(`${REST_ADR}/messages`, {
+                method: 'POST',
+                body: JSON.stringify(action.value),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(f => { console.log(f) }, f => { console.log(f) })
             return state;
         case TCHAT_PRIVATE_ACTIONS.PULLING:
             let last = 0;
