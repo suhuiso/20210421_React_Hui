@@ -5,6 +5,7 @@ import TchatViewer from '../TchatViewer/TchatViewer';
 import TchatUsers from '../TchatUsers/TchatUsers';
 import TchatWriter from '../TchatWriter/TchatWriter';
 import { REST_ADR } from "../../config/config";
+import store from "../../reducers/store";
 
 const initialState = { messages: [], tchatUsers: [] }
 
