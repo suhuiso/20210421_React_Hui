@@ -1,6 +1,6 @@
 {
   "usesTypeScript": false,
-  "usesCssModule": false,
+  "usesCssModule": true,
   "cssPreprocessor": "scss",
   "testLibrary": "Testing Library",
   "component": {
@@ -12,13 +12,11 @@
       "withLazy": false
     },
     "nudeComponent": {
-      "default": {
-        "path": "src/App/components",
-        "withStyle": false,
-        "withTest": false,
-        "withStory": false,
-        "withLazy": false
-      }
+      "path": "src/App/components",
+      "withStyle": false,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
     }
   }
 }
