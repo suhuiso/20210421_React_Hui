@@ -1,0 +1,24 @@
+{
+  "usesTypeScript": false,
+  "usesCssModule": false,
+  "cssPreprocessor": "scss",
+  "testLibrary": "Testing Library",
+  "component": {
+    "default": {
+      "path": "src/App/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": false
+    },
+    "nudeComponent": {
+      "default": {
+        "path": "src/App/components",
+        "withStyle": false,
+        "withTest": false,
+        "withStory": false,
+        "withLazy": false
+      }
+    }
+  }
+}
