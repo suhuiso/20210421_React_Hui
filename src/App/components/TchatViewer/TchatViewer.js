@@ -29,7 +29,7 @@ const TchatViewer = (props) => {
   return (
     <div className={styles.TchatViewer} data-testid="TchatViewer">
       {messages.map((e, i) => <div className="message" key={"message_" + i}>
-      {e.dateTime && e.dateTime.split('T')[1].split('.')[0] + ':'}<span style={{ color: e.color }}>{e.text}</span>
+        {e.dateTime && e.dateTime.split('T')[1].split('.')[0] + ':'}<span style={{ color: e.color }}>{e.text}</span>
         {/*2021-04-23T12:35:00.595*/}
         {JSON.stringify(e)}</div>)}
     </div>

@@ -8,7 +8,9 @@ const TchatUsers = () => (
   </div>
 );
 
-TchatUsers.propTypes = {};
+TchatUsers.propTypes = {
+  users:PropTypes.array.isRequired,
+};
 
 TchatUsers.defaultProps = {};
 
