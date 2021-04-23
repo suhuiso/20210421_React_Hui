@@ -26,7 +26,7 @@ class Tchat extends Component {
     return (
       <div className={style.Tchat}>
         <h1>Tchat
-          <Button variant="contained" color="primar" onClick={e => { store.dispatch({ type: TCHAT_ACTIONS.DISCONNECT_USER }) }}>
+          <Button variant="contained" color="primary" onClick={e => { store.dispatch({ type: TCHAT_ACTIONS.DISCONNECT_USER }) }}>
             Disconnect</Button>
         </h1>
         <div className={style.horizontal}>
