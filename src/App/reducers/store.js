@@ -3,7 +3,8 @@ import { REST_ADR } from '../config/config';
 export const initialState = {
     messages: [],
     tchatUsers: [],
-    destinataireId:-1
+    destinataireId:-1,
+    connectedUser:null
 }
 //enumeration de cas
 export const TCHAT_ACTIONS = Object.freeze({
@@ -11,7 +12,9 @@ export const TCHAT_ACTIONS = Object.freeze({
     ADD_USER: 'ADD_USER',
     ADD_MESSAGES: 'ADD_MESSAGES',
     SEND_MESSAGE: 'SEND_MESSAGE',
-    SELECT_DEST:'SELECT_DEST'
+    SELECT_DEST:'SELECT_DEST',
+    CONNECT_USER:'CONNECT_USER',
+    DISCONNECT_USER:'DISCONNECT_USER'
 });
 const TCHAT_PRIVATE_ACTIONS = Object.freeze({
     INIT: '@@redux/INIT',
@@ -57,6 +60,8 @@ function tchatReducer(state = initialState, action) {
         case TCHAT_ACTIONS.ADD_MESSAGES:
             return { ...state, messages: [...state.messages, ...action.values] };
         case TCHAT_ACTIONS.SELECT_DEST: return {...state, destinataireId:action.value};
+        case TCHAT_ACTIONS.CONNECT_USER: return {...state, connectedUser:action.value};
+        case TCHAT_ACTIONS.DISCONNECT_USER: return {...state, connectedUser:null};
         default: return state;
     }
 }

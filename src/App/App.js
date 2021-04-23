@@ -4,11 +4,18 @@ import Button from './components/Button/Button';
 import User from './components/User/User';
 import FormUser from './components/FormUser/FormUser';
 import Tchat from './components/Tchat/Tchat';
+import Auth from './components/Auth/Auth';
+import store, { initialState } from './reducers/store';
 
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state={count:0,users:[]};
+    this.state={connectedUser:initialState.connectedUser};
+  }
+  componentDidMount(){
+    store.subscribe(()=>{
+      this.setState({connectedUser:store.getState().connectedUser})
+    });
   }
   // componentDidMount(){
   //   fetch('http://desorbaix.alexandre.free.fr/phpRest/users/')
@@ -41,8 +48,8 @@ class App extends React.Component {
       //   <hr/>
       //   { this.state.users.map((e,i)=><User onclickuser={()=>{this.setState({selectedUser:e})}} key={'user-'+i} user={e} style={{display:'inline-block', border:'1px solid black', margin:'10px', padding:'10px'}}/>)}
       // </div>
-      <div>
-        <Tchat></Tchat>
+      <div className="App">
+        {null!==this.state.connectedUser?<Tchat/>:<Auth/>}
       </div>
     );
   }
